@@ -22,7 +22,6 @@ public class MinNumOfPlatformsRequired {
         Output: 3
         There are at-most three trains at a time (time between 11:00 to 11:20)
      */
-
     public static int findMinNumOfPlatformsRequired(int[] arr, int[] dep) {
         int platformRequired = 0;
         int currentTrain = 0;
