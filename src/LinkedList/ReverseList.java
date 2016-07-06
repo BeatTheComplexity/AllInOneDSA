@@ -1,4 +1,6 @@
-package LinkedList;
+package linkedlist;
+
+import linkedlist.node.ListNode;
 
 public class ReverseList {
 
