@@ -1,14 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package searching;
 
-/**
- *
- * @author Suneet
- */
 public class LastOccurance {
-    
+
+    public static int lastOccurance(int[] arr, int item) {
+        int left = 0, right = arr.length, mid;
+
+        while (right - left > 1) {
+            mid = left + (right - left) / 2;
+            if (arr[mid] <= item) {
+                left = mid;
+            } else {
+                right = mid;
+            }
+        }
+
+        return left;
+    }
 }
