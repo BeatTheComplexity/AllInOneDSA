@@ -1,20 +1,17 @@
 package allinonedsa;
 
-import tree.BoundaryTraversal;
-import tree.node.BinaryTreeNode;
+import dynamicprogramming.MaxMoneyAgainstOpponent;
 
 public class AllInOneDSA {
 
     public static void main(String[] args) {
-        BinaryTreeNode root = new BinaryTreeNode(20);
-        root.left = new BinaryTreeNode(8);
-        root.left.left = new BinaryTreeNode(4);
-        root.left.right = new BinaryTreeNode(12);
-        root.left.right.left = new BinaryTreeNode(10);
-        root.left.right.right = new BinaryTreeNode(14);
-        root.right = new BinaryTreeNode(22);
-        root.right.right = new BinaryTreeNode(25);
+       int[] arr = new int []{3,2,2,3,1,2};
+       
+      int max = MaxMoneyAgainstOpponent.getMaxMoneyAgainstOpponent(arr, 0, arr.length -1);
+      
+        System.out.println("max amount is : " + max);
         
-        BoundaryTraversal.printBoundary(root);
+        int max2 = MaxMoneyAgainstOpponent.getMaxMoneyAgainstOpponent(arr);
+        System.out.println("max amount is : " + max);
     }
 }

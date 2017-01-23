@@ -54,4 +54,20 @@ public class MaxMoneyAgainstOpponent {
         
         return table[0][n-1];
     }
+    
+    public static int getMaxMoneyAgainstOpponent(int[] arr, int start, int end){
+        if (start > end) {
+            return 0;
+        }
+        
+        int a = arr[start] + 
+                Math.min(getMaxMoneyAgainstOpponent(arr, start + 2, end), 
+                        getMaxMoneyAgainstOpponent(arr, start +1, end -1));
+        
+        int b = arr[end] + 
+                Math.min(getMaxMoneyAgainstOpponent(arr, start + 1, end -1),
+                        getMaxMoneyAgainstOpponent(arr, start, end -2));
+        
+        return Math.max(a, b);
+    }
 }
