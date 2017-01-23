@@ -1,14 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package lru.node;
 
-/**
- *
- * @author Suneet
- */
 public class LRUNode {
-    
+
+    public int key, value;
+    public LRUNode prev, next;
+
+    public LRUNode(int key, int value) {
+        this.key = key;
+        this.value = value;
+    }
 }
