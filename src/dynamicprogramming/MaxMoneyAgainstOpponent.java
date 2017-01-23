@@ -1,6 +1,7 @@
 package dynamicprogramming;
 
 public class MaxMoneyAgainstOpponent {
+
     /*
         Problem statement: Consider a row of 
         n coins of values v1 . . . vn, where n is even. 
@@ -29,45 +30,44 @@ public class MaxMoneyAgainstOpponent {
     
         **Second Approach**
     
-    */
-    
-    public static int getMaxMoneyAgainstOpponent(int[] arr){
+     */
+    public static int getMaxMoneyAgainstOpponent(int[] arr) {
         int n = arr.length;
         int[][] table = new int[n][n];
-        
+
         int x, y, z;
-        
+
         for (int k = 0; k < n; ++k) {
-            for (int i = 0, j= k ; j < n; ++j) {
+            for (int i = 0, j = k; j < n; ++j) {
                 // Here x is value of F(i+2, j), 
                 //      y is F(i+1, j-1) and
                 //      z is F(i, j-2) in above recursive formula
-                
-                x = ((i+2) <= j) ? table[i+2][j] : 0;
-                y = ((i+1) <= (j-1)) ? table[i+1][j-1] : 0;
-                z = (i <= (j-2)) ? table[i][j-2]: 0 ;
-                
+
+                x = ((i + 2) <= j) ? table[i + 2][j] : 0;
+                y = ((i + 1) <= (j - 1)) ? table[i + 1][j - 1] : 0;
+                z = (i <= (j - 2)) ? table[i][j - 2] : 0;
+
                 table[i][j] = Math.max(arr[i] + Math.min(x, y),
                         arr[j] + Math.min(y, z));
             }
         }
-        
-        return table[0][n-1];
+
+        return table[0][n - 1];
     }
-    
-    public static int getMaxMoneyAgainstOpponent(int[] arr, int start, int end){
+
+    public static int getMaxMoneyAgainstOpponent(int[] arr, int start, int end) {
         if (start > end) {
             return 0;
         }
-        
-        int a = arr[start] + 
-                Math.min(getMaxMoneyAgainstOpponent(arr, start + 2, end), 
-                        getMaxMoneyAgainstOpponent(arr, start +1, end -1));
-        
-        int b = arr[end] + 
-                Math.min(getMaxMoneyAgainstOpponent(arr, start + 1, end -1),
-                        getMaxMoneyAgainstOpponent(arr, start, end -2));
-        
+
+        int a = arr[start]
+                + Math.min(getMaxMoneyAgainstOpponent(arr, start + 2, end),
+                        getMaxMoneyAgainstOpponent(arr, start + 1, end - 1));
+
+        int b = arr[end]
+                + Math.min(getMaxMoneyAgainstOpponent(arr, start + 1, end - 1),
+                        getMaxMoneyAgainstOpponent(arr, start, end - 2));
+
         return Math.max(a, b);
     }
 }
