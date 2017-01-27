@@ -87,7 +87,7 @@ public class LRUCache {
         } else {
             LRUNode newNode = new LRUNode(key, value);
             if (map.size() >= capacity) {
-                map.remove(end);
+                map.remove(end.key);
                 removeNode(end);
             }
             
