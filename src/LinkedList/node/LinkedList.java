@@ -23,9 +23,11 @@ public class LinkedList {
         if (head == null) {
             head = node;
         } else {
-            ListNode currentnode, nextnode;
-            for (currentnode = head; (nextnode = currentnode.getNext()) != null; currentnode = nextnode);
-            currentnode.setNext(node);
+            ListNode current = head;
+            while (current.next != null) {
+                current = current.next;
+            }
+            current.next = node;
         }
         length++;
     }
