@@ -5,9 +5,9 @@ public class PrintPairsWithSumN {
     /*
         The below method is only good if range is known
         the time complexity will be O(n)
-        but will use an extra space
+        but will use an extra space of O(1000)
      */
-    private static int MAX = 1000;
+    private static final int MAX = 1000;
 
     public static void printPairsIfRangeKnown(int[] arr, int sum) {
         boolean[] binmap = new boolean[MAX];
